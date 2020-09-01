@@ -21,6 +21,7 @@
                             <?php do_action('popularis_before_content'); ?> 
                             <?php the_content(); ?>
                             <?php do_action('popularis_after_content'); ?> 
+							<p>&nbsp;</p><p>&nbsp;</p>
                         </div>
                         <?php wp_link_pages(); ?>
                         <?php popularis_entry_footer('tags'); ?>
