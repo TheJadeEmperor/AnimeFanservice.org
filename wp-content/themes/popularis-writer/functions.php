@@ -22,6 +22,7 @@ add_action('after_setup_theme', 'popularis_writer_setup');
 
 add_action( 'init', 'popularis_customizer' );
 
+
 if (!function_exists('popularis_writer_parent_css')):
 
     /**
@@ -82,6 +83,7 @@ function gallery_function($atts) {
     
 	extract(shortcode_atts(array(
       'anime' => 1,
+	  'thumbnails' => 0
 	), $atts));
 
 	$site_url = get_site_url();
@@ -107,12 +109,12 @@ function gallery_function($atts) {
 	
 	sort($small); //sort the images in order
 	
-    $galleryContent .= '<table><tr valign="top"><td>
+    $galleryContent .= '<center>Click on the thumbnail to see the full size image</center>
+	<table><tr valign="top"><td>
 	<ul class="hoverbox">';
     
 	if(is_dir($directory))  
-	foreach($small as $picture)
-	{
+	foreach($small as $picture) {
 		//echo $picture.' ';
 		list($name, $ext) = explode('.', $picture); 
 		
@@ -123,14 +125,23 @@ function gallery_function($atts) {
 				list($width, $height, $type, $attr) = getimagesize($readThisImg);
 
                 if($height > $width)
-                    $class = 'tall';
+                    $class = 'preview_tall';
                 else
-                    $class = 'preview';
+                    $class = 'preview_portrait';
 			
-				$galleryContent .= '<li><a href="'.$showThisImg.'" target="_BLANK">
-				<img src="'.$showThisImg.'" alt="'.$anime.'">
-				<img src="'.$showThisImg.'" class="'.$class.'" alt="'.$anime.'" title="'.$anime.'">
-				</a></li>'; 
+				if($thumbnails == 1) {
+					$galleryContent .= '<li title="'.$anime.'"><a href="'.$showThisImg.'" target="_BLANK">
+					<img src="'.$showThisImg.'" alt="'.$anime.'" class="episode_thumbnail" />
+					<img src="'.$showThisImg.'" class="preview_large" alt="'.$anime.'" >
+					</a></li>'; 
+				}
+				else {
+					$galleryContent .= '<li title="'.$anime.'"><a href="'.$showThisImg.'" target="_BLANK">
+					<img src="'.$showThisImg.'" alt="'.$anime.'" />
+					<img src="'.$showThisImg.'" class="'.$class.'" alt="'.$anime.'" >
+					</a></li>'; 
+				}
+					
 		   }      
         }//foreach
  
@@ -141,5 +152,7 @@ function gallery_function($atts) {
 }
 
 
+
+
 // Register shortcode
-add_shortcode('show_gallery', 'gallery_function'); 
+add_shortcode('show_gallery', 'gallery_function');

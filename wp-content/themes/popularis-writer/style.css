@@ -164,11 +164,11 @@ img {
 	list-style: none;
 }
 
-.hoverbox a .preview, .hoverbox a .tall {
+.hoverbox a .preview_portrait, .hoverbox a .preview_tall, .hoverbox a .preview_large {
 	display: none;
 }
 
-.hoverbox a:hover .preview {
+.hoverbox a:hover .preview_portrait {
 	display: block;
 	position: absolute;
 	top: -33px;
@@ -176,13 +176,22 @@ img {
 	z-index: 1;
 }
 
-.hoverbox a:hover .tall {
+.hoverbox a:hover .preview_tall {
 	display: block;
 	position: absolute;
 	top: -50px;
 	left: -10px;
 	z-index: 1;
 }
+
+.hoverbox a:hover .preview_large {
+	display: block;
+	position: absolute;
+	top: -50px;
+	left: -10px;
+	z-index: 1;
+}
+
 
 .hoverbox li {
 	background: #eee;
@@ -210,16 +219,36 @@ img {
 }
 
 
-.hoverbox .preview {
+.hoverbox .preview_portrait {
 	border-color: #FFF;
 	width: 200px;
 	height: 150px;
 	cursor: crosshair;
 }
 
-.hoverbox .tall {
+.hoverbox img.preview_tall {
 	border-color: #FFF;
 	width: 150px;
 	height: 200px;
+	cursor: crosshair;
+}
+
+/* show thumbnail images */
+.hoverbox .episode_thumbnail {
+	background: #fff;
+	border-color: #aaa #ccc #ddd #bbb;
+	border-style: solid;
+	border-width: 1px;
+	color: inherit;
+	padding: 2px;
+	vertical-align: top;
+	width: 300px;
+	height: 245px;
+}
+
+.hoverbox .preview_large {
+	border-color: #FFF;
+	width: 350px;
+	height: 300px;
 	cursor: crosshair;
 }
