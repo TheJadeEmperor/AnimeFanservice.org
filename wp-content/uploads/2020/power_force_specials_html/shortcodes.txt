@@ -1,0 +1,31 @@
+shortcodes 
+. 
+[fanfic file=power_force_specials_html/aa_legendary_mirrari.html] 
+. 
+[fanfic file=power_force_specials_html/aa_threat_demon_summoner.html] 
+. 
+[fanfic file=power_force_specials_html/aa_trouble_in_almerak.html] 
+. 
+[fanfic file=power_force_specials_html/aa_wrath_of_rubeus.html] 
+. 
+[fanfic file=power_force_specials_html/as_assassin_squad_i.html] 
+. 
+[fanfic file=power_force_specials_html/as_assassin_squad_ii.html] 
+. 
+[fanfic file=power_force_specials_html/as_assassin_squad_iii.html] 
+. 
+[fanfic file=power_force_specials_html/gp_stories.html] 
+. 
+[fanfic file=power_force_specials_html/gw_aftermath_of_war.html] 
+. 
+[fanfic file=power_force_specials_html/gw_jerrells_master_plan.html] 
+. 
+[fanfic file=power_force_specials_html/gw_sayan_resistance.html] 
+. 
+[fanfic file=power_force_specials_html/pf_a_the_merger.html] 
+. 
+[fanfic file=power_force_specials_html/pf_b_showdown.html] 
+. 
+[fanfic file=power_force_specials_html/pf_c_overload.html] 
+. 
+[fanfic file=power_force_specials_html/the_s_project_i_ii.html] 
