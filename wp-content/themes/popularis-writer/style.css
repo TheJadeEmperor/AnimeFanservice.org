@@ -252,3 +252,8 @@ img {
 	height: 300px;
 	cursor: crosshair;
 }
+
+.fanfic-template-default .single-content p {
+	text-indent: 30px;
+	font-family: Arial;
+}

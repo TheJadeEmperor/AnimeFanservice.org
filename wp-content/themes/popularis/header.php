@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
     <head>
-        <meta charset="<?php bloginfo('charset'); ?>">
+        <meta charset="windows-1252">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <?php wp_head(); ?>
@@ -9,6 +9,8 @@
 		<!-- adsense -->
 		<script data-ad-client="ca-pub-9979225970120201" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<!-- adsense -->
+
+		<meta name="google-site-verification" content="K4GZC5J-LMQCLaRN9bLptbX2f89SaS2HrFXtAGWCTts" />		
 		
 		</head>
     <body id="blog" <?php body_class(); ?>>

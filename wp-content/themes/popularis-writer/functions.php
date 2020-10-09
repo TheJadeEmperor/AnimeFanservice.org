@@ -140,8 +140,7 @@ function gallery_function($atts) {
 					<img src="'.$showThisImg.'" alt="'.$anime.'" />
 					<img src="'.$showThisImg.'" class="'.$class.'" alt="'.$anime.'" >
 					</a></li>'; 
-				}
-					
+				}					
 		   }      
         }//foreach
  
@@ -153,6 +152,84 @@ function gallery_function($atts) {
 
 
 
+function fanfic_function($atts) {
+    
+	extract(shortcode_atts(array(
+      'file' => 1,
+	), $atts));
 
-// Register shortcode
+	$fileName = 'wp-content/uploads/2020/'.$file;
+	
+	//echo $fileName;
+	if(is_file($fileName))  //check if file exists
+		$readfile = readfile($fileName); //read all contents into a var 
+	else 
+		$readfile = 'File not found';
+
+	if (preg_match("/\t/", $readfile)) {
+		echo '1';
+	}
+	preg_replace("/\t/", '<p>', $readfile);
+
+	return $readfile.' characters';
+}
+
+
+// gallery shortcode [show_gallery anime="folder_name/folder_name"]
 add_shortcode('show_gallery', 'gallery_function');
+
+//fanfic shortcode [fanfic file="folder_name/file_name"]
+add_shortcode('fanfic', 'fanfic_function');
+
+
+function custom_post_type() {
+ 
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Fanfic', 'Post Type General Name', 'twentytwenty' ),
+        'menu_name'           => __( 'Fanfiction' ),
+        'all_items'           => __( 'All Fanfics' ),
+        'view_item'           => __( 'View Fanfic' ),
+        'add_new_item'        => __( 'Add New Fanfic' ),
+        'add_new'             => __( 'Add New Fanfic' ),
+        'edit_item'           => __( 'Edit Fanfic' ),
+        'update_item'         => __( 'Update Fanfic' ),
+        'search_items'        => __( 'Search Fanfic' ),
+        'not_found'           => __( 'Not Found' ),
+        'not_found_in_trash'  => __( 'Not found in Trash'),
+    );
+     
+	// Set other options for Custom Post Type 
+    $args = array(
+        'label'               => __( 'fanfic' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
+        // You can associate this CPT with a taxonomy or custom taxonomy. 
+        'taxonomies'          => array( 'categories' ),
+        /* A hierarchical CPT is like Pages and can have
+        * Parent and child items. A non-hierarchical CPT
+        * is like Posts.
+        */ 
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+    );
+     
+    // Registering your Custom Post Type
+    register_post_type( 'fanfic', $args );
+ 
+}
+ 
+ 
+add_action( 'init', 'custom_post_type', 0 );
