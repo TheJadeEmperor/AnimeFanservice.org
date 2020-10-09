@@ -811,7 +811,7 @@
                     * Check if register link for to apply the replacement
                     * Unfortunate the default WordPress link does not contain a beginning backslash to make a replacement match in functions->content_urls_replacement
                     */
-                    if(preg_match("/(wp-login.php|checkemail=registered)/i", $location))
+                    if ( preg_match("/(wp-login.php?(.*)?checkemail=registered)/i", $location) || preg_match("/(wp-login.php?(.*)?checkemail=confirm)/i", $location ) )
                         {
                             $updated_slug     =   $this->functions->get_module_item_setting('new_wp_login_php'  ,   'admin');
                             if ( ! empty(  $updated_slug ))

@@ -11,6 +11,10 @@
                     //check for block
                     if( isset( $_GET['wph-throw-404'] )   )
                         add_filter ('woocommerce_is_rest_api_request', '__return_false' );  
+                        
+                        
+                    add_filter('admin_url',                                     array( 'WPH_conflict_handle_woocommerce', 'admin_url'),      20, 3);
+                    
                 }                        
             
             static function is_plugin_active()
@@ -73,6 +77,31 @@
                     
                        
                     return $data;    
+                }
+                
+                
+            /**
+            * Fix wrong admin url
+            * 
+            * @param mixed $url
+            * @param mixed $path
+            * @param mixed $blog_id
+            */
+            static function admin_url( $url, $path, $blog_id )
+                {
+                    
+                    global $wph;
+                    
+                    $admin_url     =   $wph->functions->get_module_item_setting( 'admin_url' );
+                    
+                    if ( empty ( $admin_url ) )
+                        return $url;
+
+                    if ( strpos ( $url, '/wp-admin/' . $admin_url .'/' ) !==    FALSE )
+                        $url    =   str_replace( '/' . $admin_url . '/', '/', $url);   
+                        
+                    return $url;   
+                    
                 }
   
                             

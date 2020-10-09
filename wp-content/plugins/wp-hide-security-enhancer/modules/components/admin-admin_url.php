@@ -78,11 +78,7 @@
                         return FALSE;
                         
                     remove_action( 'template_redirect', 'wp_redirect_admin_locations', 1000 );
-                    
-                    //conflict handle with other plugins
-                    include_once(WPH_PATH . 'compatibility/wp-simple-firewall.php');
-                    WPH_conflict_handle_wp_simple_firewall::custom_login_check();
-                    
+                                        
                     $this->wph->functions->add_replacement( trailingslashit(    site_url()  ) .  'wp-admin' , trailingslashit(    home_url()  ) .  $saved_field_data );
 
                     add_action('set_auth_cookie',       array($this,'set_auth_cookie'), 999, 5);

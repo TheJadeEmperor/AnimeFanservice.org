@@ -211,9 +211,17 @@
                     if(empty($saved_field_data) ||  $saved_field_data   ==  'no')
                         return FALSE;
 
-                    add_filter('rest_enabled', '__return_false');
+                    add_filter('rest_authentication_errors', array ( $this, 'rest_authentication_errors' ) );
                     add_filter('rest_jsonp_enabled', '__return_false');
                     
+                }
+                
+            
+            function rest_authentication_errors( $result )
+                {
+                    
+                    return new WP_Error( 'rest_disabled', 'The service is currently disabled.', array( 'status' => 400 ) );
+ 
                 }
                 
                 

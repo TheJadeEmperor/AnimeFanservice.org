@@ -127,6 +127,9 @@
                     //WP-Optimize - Clean, Compress, Cache
                     include_once(WPH_PATH . 'compatibility/wp-optimize.php');
                     
+                    //Hyper Cache
+                    include_once(WPH_PATH . 'compatibility/hyper-cache.php');
+                    
                     /**
                     * Themes
                     */

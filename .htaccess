@@ -1,4 +1,14 @@
 # BEGIN WP Hide & Security Enhancer
+<IfModule mod_rewrite.c> 
+RewriteEngine On 
+RewriteBase /AnimeFanservice.org/ 
+#WriteCheckString:1600291761_91812
+RewriteRule .* - [E=HTTP_MOD_REWRITE:On]
+
+RewriteRule ^anime(.*) /AnimeFanservice.org/wp-login.php$1 [L,QSA]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^wp-login.php /index.php?wph-throw-404 [L]
+</IfModule> 
 
 # END WP Hide & Security Enhancer
 

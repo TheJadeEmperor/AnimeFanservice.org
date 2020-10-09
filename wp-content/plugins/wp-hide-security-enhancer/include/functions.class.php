@@ -253,16 +253,22 @@
                             $_settings_for_regex[ $field_name ] =   $parts[0];
                         } 
 
-                        
-                    $reserved_values          =   array(
-                                                                                                                'wp'                =>  __('is a system reserved.',     'wp-hide-security-enhancer'),
-                                                                                                                'admin'             =>  __('is a system reserved.',     'wp-hide-security-enhancer'),
-                                                                                                                'admin-ajax.php'    =>  __('is a system reserved.',     'wp-hide-security-enhancer')
-                                                                                                                );
+                    if ( $tab_slug != 'cdn' )
+                        {    
+                            $reserved_values          =   array(
+                                                                                                                        'wp'                =>  __('is a system reserved.',     'wp-hide-security-enhancer'),
+                                                                                                                        'admin'             =>  __('is a system reserved.',     'wp-hide-security-enhancer'),
+                                                                                                                        'admin-ajax.php'    =>  __('is a system reserved.',     'wp-hide-security-enhancer')
+                                                                                                                        );
+                        }
+                        else
+                        $reserved_values    =   array();
                     
                     $domain_parsed =   parse_url ( home_url() ) ;
                     $domain_parsed_host_parts   =   explode ( "." , $domain_parsed['host'] );
-                    $reserved_values[$domain_parsed_host_parts[0]]          =   __('is similar to domain name.',     'wp-hide-security-enhancer');
+                    
+                    if ( $tab_slug != 'cdn' )
+                        $reserved_values[$domain_parsed_host_parts[0]]          =   __('is similar to domain name.',     'wp-hide-security-enhancer');
                     
                     //clean the just updated fields within main settings array
                     foreach($unique_require_updated_settings   as  $field_name =>  $data)

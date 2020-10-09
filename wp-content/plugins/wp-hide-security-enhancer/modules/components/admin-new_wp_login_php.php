@@ -90,11 +90,7 @@
                     
                     if(empty($saved_field_data) ||  $saved_field_data   ==  'no')
                         return FALSE;
-                            
-                    //conflict handle with other plugins
-                    include_once(WPH_PATH . 'compatibility/wp-simple-firewall.php');
-                    WPH_conflict_handle_wp_simple_firewall::custom_login_check();
-                    
+                   
   
                     add_filter('login_url',             array($this,'login_url'), 999, 3 ); 
   
