@@ -91,7 +91,7 @@ function gallery_function($atts) {
     global $context; 
     $dir = $context[dir];
     
-	$directory = 'wp-content/uploads/'.$anime;
+	$directory = 'wp-content/uploads/anime/'.$anime;
 	
     $i = 1; //images counter
 	if(is_dir($directory))
@@ -158,7 +158,7 @@ function fanfic_function($atts) {
       'file' => 1,
 	), $atts));
 
-	$fileName = 'wp-content/uploads/2020/'.$file;
+	$fileName = 'wp-content/uploads/fiction/'.$file;
 	
 	//echo $fileName;
 	if(is_file($fileName))  //check if file exists
