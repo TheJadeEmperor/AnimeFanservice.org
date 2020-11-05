@@ -257,3 +257,24 @@ img {
 	text-indent: 30px;
 	font-family: Arial;
 }
+
+/* side by side table of contents */
+.toc_left {
+	float: left;
+	width: 50%
+}
+.toc_right {
+	float: right;
+	width: 50%
+}
+
+.clear {
+	clear: both
+}
+
+@media (max-width: 646px) {
+	.toc_left, .toc_right {
+		float: none;
+		width: 90%
+	}
+}
