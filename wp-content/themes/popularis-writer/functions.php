@@ -109,7 +109,7 @@ function gallery_function($atts) {
 	
 	sort($small); //sort the images in order
 	
-    $galleryContent .= '<center>Click on the thumbnail to see the full size image</center>
+    $galleryContent .= '<center><p style="font-size: small">Click on the thumbnail to see the full size image</p></center>
 	<table><tr valign="top"><td>
 	<ul class="hoverbox">';
     
@@ -182,6 +182,37 @@ add_shortcode('show_gallery', 'gallery_function');
 add_shortcode('fanfic', 'fanfic_function');
 
 
+
+function add_custom_taxonomies() {
+  // Add new "Locations" taxonomy to Posts 
+  register_taxonomy('colors', 'post', array(
+    // Hierarchical taxonomy (like categories)
+    'hierarchical' => false,
+    // This array of options controls the labels displayed in the WordPress Admin UI
+    'labels' => array(
+      'name' => _x( 'Colors', 'taxonomy general name' ),
+      'singular_name' => _x( 'color', 'taxonomy singular name' ),
+      'search_items' =>  __( 'Search Colors' ),
+      'all_items' => __( 'All Colors' ),
+      'edit_item' => __( 'Edit Color' ),
+      'update_item' => __( 'Update Color' ),
+      'add_new_item' => __( 'Add New Color' ),
+      'new_item_name' => __( 'New Color Name' ),
+      'menu_name' => __( 'Colors' ),
+    ),
+    // Control the slugs used for this taxonomy
+    'rewrite' => array(
+      'slug' => 'colors', // This controls the base slug that will display before each term
+      'with_front' => false, // Don't display the category base before "/colors/"
+      'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+    ),
+  ));
+}
+
+add_action( 'init', 'add_custom_taxonomies', 0 );
+
+
+
 function custom_post_type() {
  
 // Set UI labels for Custom Post Type
@@ -228,7 +259,6 @@ function custom_post_type() {
      
     // Registering your Custom Post Type
     register_post_type( 'fanfic', $args );
- 
 }
  
  

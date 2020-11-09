@@ -77,13 +77,7 @@ if (!function_exists('popularis_generate_construct_footer')) :
             <div class="container">
                 <div class="footer-credits-text text-center">
                     <?php
-                    /* translators: %s: WordPress string with wordpress.org URL */
-                    printf(esc_html__('Proudly powered by %s', 'popularis'), '<a href="' . esc_url(__('https://wordpress.org/', 'popularis')) . '">WordPress</a>');
-                    ?>
-                    <span class="sep"> | </span>
-                    <?php
-                    /* translators: %1$s: Popularis theme name with populariswp.com URL */
-                    printf(esc_html__('Theme: %1$s', 'popularis'), '<a href="' . esc_url('https://populariswp.com/') . '">' . esc_html( $my_theme->get( 'Name' ) ) . '</a>');
+                    echo 'Copyright Anime Fanservice &copy; '.date('Y', time());
                     ?>
                 </div>
             </div>	
