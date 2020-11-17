@@ -1,8 +1,13 @@
+# Wordpress directories
 wp-config.php
 wp-content/uploads/2020/**
 wp-content/uploads/2020/*
 wp-content/uploads/anime/**
 wp-content/uploads/anime/*
+wp-content/uploads/archives/*
+
+# Visual studio code
+.vs/
 
 # Windows image file caches
 Thumbs.db
