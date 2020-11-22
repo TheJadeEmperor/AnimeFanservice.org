@@ -43,14 +43,13 @@ if($_POST) {
 
 			<div class="news-text-wrap col-md-12">
 			<?
-			$_POST = true;
-			$emailAddress = '';
+			
+			$emailAddress = 'animefavoritechannel@gmail.com';
 			if($_POST) {
 			?>
 
 			<h2>Thank you for signing up. Expect your download link to hit your inbox soon! Make sure to add <a href="mailto:<?=$emailAddress?>"><?=$emailAddress?></a> to your safelist! </h2>
 
-			 
 			<?
 			}
 

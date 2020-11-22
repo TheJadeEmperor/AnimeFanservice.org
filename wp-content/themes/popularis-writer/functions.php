@@ -89,7 +89,7 @@ function gallery_function($atts) {
 	$site_url = get_site_url();
 	
     global $context; 
-    $dir = $context[dir];
+    $dir = $context['dir'];
     
 	$directory = 'wp-content/uploads/anime/'.$anime;
 	
@@ -109,7 +109,7 @@ function gallery_function($atts) {
 	
 	sort($small); //sort the images in order
 	
-    $galleryContent .= '<center><p style="font-size: small">Click on the thumbnail to see the full size image</p></center>
+    $galleryContent .= '<center><p style="font-size: small">Hover over image to enlarge. Click on the thumbnail to see the full size image. To download this gallery, <a href="'.$site_url.'/download">click here</a>.</p></center>
 	<table><tr valign="top"><td>
 	<ul class="hoverbox">';
     
