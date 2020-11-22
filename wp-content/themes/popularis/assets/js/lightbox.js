@@ -1,4 +1,5 @@
-$( document ).ready(function() {
+
+jQuery(function($) {
     $("body").keydown(function(e) {
     if(e.keyCode == 37) { // left
       plusSlides(-1); console.log('plusSlides(-1);');
@@ -7,17 +8,24 @@ $( document ).ready(function() {
       plusSlides(1); console.log('plusSlides(1);');
     }
     else if(e.keyCode == 27) { //esc
-      closeModal(); console.log('closeModal();');
+      closeModal('modal'); console.log('closeModal();');
     }
   });
   });
  
-  function openModal() {
-      document.getElementById("myModal").style.display = "block";
+  function openModal(anime) {
+      console.log('openModal '+anime);
+      document.getElementById(anime).style.display = "block";
   }
   
-  function closeModal() {
-      document.getElementById("myModal").style.display = "none";
+  function closeModal(anime) {
+    
+      if (anime == 'modal') {
+        console.log('closeModal '+anime); 
+        $('.modal').css('display', 'none');
+      }
+      else
+        document.getElementById(anime).style.display = "none";
   }
   
   var slideIndex = 1;

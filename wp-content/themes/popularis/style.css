@@ -631,7 +631,7 @@ select {
     padding: 5px 0;
     font-size: 14px;
     position: relative;
-    z-index: 99;
+    z-index: 1;
 }
 .top-bar-section .widget, .top-bar-section p {
     margin-bottom: 0;

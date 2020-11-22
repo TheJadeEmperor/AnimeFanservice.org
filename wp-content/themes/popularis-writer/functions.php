@@ -92,16 +92,20 @@ function gallery_function($atts) {
     $dir = $context['dir'];
     
 	$directory = 'wp-content/uploads/anime/'.$anime;
-	
-    $i = 1; //images counter
+
+    //valid image extensions
+    $validFiles = array('jpg', 'png', 'jpeg');
+    
+    $counter = 1; //images counter
 	if(is_dir($directory))
     if ($handle = opendir($directory)) { //read all files in directory
    
         //List all the files
         while (false !== ($file = readdir($handle))) {
-            if($file != 'Thumbs.db' && $file != '..' && $file != '.') {   
-                $small[$i] = $file; //add image to array
-                $i++; //increment counter
+            $ext = pathinfo($file, PATHINFO_EXTENSION);
+            if(in_array($ext, $validFiles)) {   
+                $small[] = $file; //add image to array
+                $counter++; //increment counter
             }
         }//while
         closedir($handle);
@@ -109,11 +113,11 @@ function gallery_function($atts) {
 	
 	sort($small); //sort the images in order
 	
-    $galleryContent .= '<center><p style="font-size: small">Hover over image to enlarge. Click on the thumbnail to see the full size image. To download this gallery, <a href="'.$site_url.'/download">click here</a>.</p></center>
+    $galleryContent .= '<center><p style="font-size: small">Hover over image to enlarge. Click on the thumbnail to see full size image. To download this gallery, <a href="'.$site_url.'/download">click here</a>.</p></center>
 	<table><tr valign="top"><td>
 	<ul class="hoverbox">';
     
-	if(is_dir($directory))  
+//	if(is_dir($directory))  
 	foreach($small as $picture) {
 		//echo $picture.' ';
 		list($name, $ext) = explode('.', $picture); 
@@ -130,13 +134,13 @@ function gallery_function($atts) {
                     $class = 'preview_portrait';
 			
 				if($thumbnails == 1) {
-					$galleryContent .= '<li title="'.$anime.'"><a href="'.$showThisImg.'" target="_BLANK">
-					<img src="'.$showThisImg.'" alt="'.$anime.'" class="episode_thumbnail" />
+					$galleryContent .= '<li title="'.$anime.'" onclick="openModal(\''.$anime.'\');currentSlide('.$counter.')"><a href="#">
+					<img src="'.$showThisImg.'" alt="'.$anime.'" class="episode_thumbnail"  />
 					<img src="'.$showThisImg.'" class="preview_large" alt="'.$anime.'" >
 					</a></li>'; 
 				}
 				else {
-					$galleryContent .= '<li title="'.$anime.'"><a href="'.$showThisImg.'" target="_BLANK">
+					$galleryContent .= '<li title="'.$anime.'" onclick="openModal(\''.$anime.'\');currentSlide('.$counter.')"><a href="#">
 					<img src="'.$showThisImg.'" alt="'.$anime.'" />
 					<img src="'.$showThisImg.'" class="'.$class.'" alt="'.$anime.'" >
 					</a></li>'; 
@@ -146,7 +150,42 @@ function gallery_function($atts) {
  
     $galleryContent .= '</ul></td>
     </tr></table>';
-    
+
+    $galleryContent .= '<div id="'.$anime.'" class="modal">
+<span class="close cursor" onclick="closeModal(\''.$anime.'\')">&times;</span>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+<div class="modal-content">';
+
+foreach($small as $num => $picture) {
+    $num = $num + 1; //offset the 0 element
+    $showThisImg = $site_url.'/'.$directory.'/'.$picture;
+
+    $galleryContent .= '<div class="mySlides">
+      <div class="numbertext">'.$num.' / '.$counter.'</div>
+      <img src="'.$showThisImg.'" onclick="plusSlides(1)" class="lightbox_main_image cursor">
+    </div>';
+}
+
+$galleryContent .= '<div class="caption-container">
+<p id="caption"></p>
+</div>';
+
+//lightbox slideshow images
+$postTitle = 'this anime'; //get post title
+
+foreach($small as $num => $picture) {
+    $num = $num + 1; //offset the 0 element
+    $showThisImg = $site_url.'/'.$directory.'/'.$picture;
+
+    $galleryContent .= '<div class="column">
+    <img class="demo cursor" src="'.$showThisImg.'" style="width:100%" onclick="currentSlide('.($num+1).')" alt="'.$anime.'">
+    </div> ';
+}
+
+$galleryContent .=  ' </div>
+</div>';
+
     return $galleryContent;
 }
 
