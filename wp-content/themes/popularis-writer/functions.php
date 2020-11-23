@@ -86,15 +86,12 @@ function gallery_function($atts) {
 	  'thumbnails' => 0
 	), $atts));
 
-	$site_url = get_site_url();
+    $site_url = get_site_url();
+    $postTitle = get_the_title(); 
     $animeID = str_replace('/', '_', $anime);
-	
-    global $context; 
-    $dir = $context['dir'];
-    
+
 	$directory = 'wp-content/uploads/anime/'.$anime;
 
-echo $animeID;
     //valid image extensions
     $validFiles = array('jpg', 'png', 'jpeg');
     
@@ -111,7 +108,18 @@ echo $animeID;
         }//while
         closedir($handle);
     }//if
-	
+
+    sort($small); //sort image names in order
+
+    //sorting adds a 0 element and shifts all elements back 1
+    //this will fix the array 
+    foreach ($small as $num => $picture) {
+        $small[$num+1] = $picture; 
+    }
+    unset($small[0]); //delete 0 element
+
+//    print_r($small); exit;
+
     $galleryContent .= '<center><p style="font-size: small">Hover over image to enlarge. Click on the thumbnail to see full size image. To download this gallery, <a href="'.$site_url.'/download">click here</a>.</p></center>
 	<table><tr valign="top"><td>
 	<ul class="hoverbox">';
@@ -173,7 +181,7 @@ $galleryContent .=  '<div class="caption-container">
 </div>';
 
 //horizontal scrolling images
-$postTitle = 'this anime'; //delete
+
 foreach($small as $num => $picture) {
     $showThisImg = $site_url.'/'.$directory.'/'.$picture;
     
