@@ -1,12 +1,12 @@
 <article>
-    <div <?php post_class(); ?>>                    
+    <div <?php post_class(); ?> >                    
         <div class="post-item row">
             <div class="news-thumb col-md-12">
                 <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                     <?php the_post_thumbnail('popularis-img'); ?>
                 </a>
             </div>
-            <?php if (has_post_thumbnail()) { ?>
+    
                 <div class="news-text-wrap col-md-12">
                 
                     <?php popularis_entry_footer('cats') ?>    
