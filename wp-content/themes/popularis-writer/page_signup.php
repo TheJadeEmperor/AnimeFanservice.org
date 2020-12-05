@@ -55,18 +55,22 @@ if($_POST) {
 
 			?>
 				
-				<h1>Download our Fanservice Galleries in Zip format!</h1> 
+				<h1>You Can Directly Download all our Fanservice Galleries in Zip format!</h1> 
 				
-				<h2>Get 3500+ High Quality Images of anime fanservice on your computer! </h2>
+				<h2>Get 3500+ High Quality Images of anime fanservice on your computer - It's better than downloading one image at a time</h2>
 		
-				<h2>Enter your email below for download link</h2>
+				<h3>Enter your email below for your download link</h3>
 				
 				<form name="sendgrid" method="POST">
 	 
-					<input type="text" class="field" name="email" id="email" placeholder="Enter your best email" title="Enter your best email" />
-					 
-					<input type="submit" name="submit" id="submit" class="submit" value="Join Us Now" onclick="return validateEmail(document.sendgrid.email.value);">
+					<input type="text" class="email" name="email" id="email" placeholder="Enter your best email" title="Enter your best email" />
+					
+					<input type="submit" name="submit" class="signup" value="Join Us Now" onclick="return validateEmail(document.sendgrid.email.value);">
+
+					<p><span class="note">
+					We hate spam and will never sell your email address to others. All opt-ins are completely optional.</span></p>
 				</form>
+				
 				<p>&nbsp;</p>
 			</div>
 		</div>
