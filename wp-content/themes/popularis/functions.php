@@ -217,6 +217,13 @@ if (class_exists('WooCommerce')) {
     require_once( trailingslashit(get_template_directory()) . 'inc/woocommerce.php' );
 }
 
+/**
+ * Lightbox Hoverbox Gallery
+ */
+require_once( trailingslashit(get_template_directory()) . 'inc/lightbox_gallery.php' );
+
+
+
 add_action('widgets_init', 'popularis_widgets_init');
 
 /**
@@ -279,6 +286,20 @@ function popularis_skip_link() {
 }
 
 add_action( 'wp_body_open', 'popularis_skip_link', 5 );
+
+
+if (!function_exists('popularis_writer_excerpt_length')) :
+    /* Limit the excerpt.*/
+    function popularis_writer_excerpt_length($length) {
+        if (is_home() || is_archive()) { // Make sure to not limit pagebuilders
+            return '45';
+        } else {
+            return $length;
+        }
+    }
+    add_filter('excerpt_length', 'popularis_writer_excerpt_length', 999);
+endif;
+
 
 
 
@@ -361,6 +382,8 @@ add_shortcode('show_gallery', 'gallery_function');
 
 //fanfic shortcode [fanfic file="folder_name/file_name"]
 add_shortcode('fanfic', 'fanfic_function');
+
+
 
 
 //disable automatic updates 
