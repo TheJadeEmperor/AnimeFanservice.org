@@ -3,6 +3,9 @@ include('api_sendgrid.php');
  
 get_header(); 
 //echo $list_id;
+$site_url = get_site_url();
+
+$img_url = $site_url.'/wp-content/uploads/archives/zip_galleries.png';
 
 
 if($_POST) {
@@ -58,6 +61,9 @@ if($_POST) {
 				<h1>You Can Directly Download all our Fanservice Galleries in Zip format!</h1> 
 				
 				<h2>Get 3500+ High Quality Images of anime fanservice on your computer - It's better than downloading one image at a time</h2>
+
+				<p><img src="<?=$img_url?>" class="signup_image" /></p>
+				
 		
 				<h3>Enter your email below for your download link</h3>
 				

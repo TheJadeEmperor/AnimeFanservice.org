@@ -1181,6 +1181,9 @@ nav.navigation.post-navigation {
     margin-left: 5px;
 }
 
+
+/* social media header */
+
 .social_media_header {
     float: right
 }
@@ -1201,6 +1204,10 @@ nav.navigation.post-navigation {
 .social_media_header li a {
     color: #ffffff;
     font-size: 28px;
+}
+
+.social_media_header a:hover {
+    color: #fec34d;
 }
 
 @media (max-width: 767px) {
@@ -1509,6 +1516,12 @@ article.blog-article:nth-of-type(2n-1) {
     border-radius: 15px;
 }
 
+.cat-links a:hover {
+    color: #ffffff;
+    background-color: #fec34d;
+    border: #fec34d 2px solid;
+}
+
 .post-item h2,
 h1.single-title {
     width: 100%;
@@ -1570,6 +1583,10 @@ nav.navigation.pagination .current {
 
 /* sign up page */
 
+.download {
+    text-align: center;
+}
+
 .download h1 {
     font-size: 52px;
     line-height: 56px;
@@ -1605,4 +1622,9 @@ nav.navigation.pagination .current {
 
 .download .signup:hover {
     background-color: #ff9c12;
+}
+
+.download .signup_image {
+    border: #fd8407 2px solid;
+    margin: 20px 0 15px 0;
 }
