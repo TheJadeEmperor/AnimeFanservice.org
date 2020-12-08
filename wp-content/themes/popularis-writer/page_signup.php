@@ -8,6 +8,7 @@ $site_url = get_site_url();
 $img_zip = $site_url.'/wp-content/uploads/images/signup/zip_galleries.png';
 $img_cc = $site_url.'/wp-content/uploads/images/signup/cc_pizza.png';
 
+$_POST = true;
 
 if($_POST) {
 	$email = $_POST['email'];
@@ -50,11 +51,8 @@ if($_POST) {
 			
 			$emailAddress = 'animefavoritechannel@gmail.com';
 			if($_POST) {
-			?>
-
-			<h2>Thank you for signing up. Expect your download link to hit your inbox soon! Make sure to add <a href="mailto:<?=$emailAddress?>"><?=$emailAddress?></a> to your safelist! </h2>
-
-			<?
+				echo '
+				<h3>Thank you for signing up. Expect your download link to hit your inbox soon! Make sure to add <a href="mailto:'.$emailAddress.'">'.$emailAddress.'</a> to your safelist! </h3>';
 			}
 			?>
 				
@@ -67,7 +65,7 @@ if($_POST) {
 				<p>&nbsp;</p>
 				
 				<form name="sendgrid" method="POST">
-					<h3>Download link will be delivered to your email by CC</h3>
+					<h3>Download link will be delivered to your email by CC!</h3>
 					<div class="form_left">
 					<p><img src="<?=$img_cc ?>" class="CC Pizza" /></p>
 					</div>

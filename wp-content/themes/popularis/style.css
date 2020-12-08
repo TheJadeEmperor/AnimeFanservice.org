@@ -1603,7 +1603,7 @@ nav.navigation.pagination .current {
 .signup h3 {
     line-height: 34px;
     margin: 0 auto;
-    color: #FF4500
+    color: #e60000
 }
 
 .signup form {
@@ -1619,7 +1619,7 @@ nav.navigation.pagination .current {
 
 .signup .form_right {
     float: right;
-    float: 70%;
+    width: 70%;
     text-align: left;
 }
 
@@ -1647,4 +1647,39 @@ nav.navigation.pagination .current {
     font-size: 12px;
     line-height: 16px;
     margin: 25px 0px
+}
+
+@media (max-width: 420px) {
+    .signup h1 {
+        font-size: 42px;
+        line-height: 48px;
+    }
+    .signup form,
+    .signup .form_left,
+    .signup .form_right {
+        float: none;
+        width: 100%;
+        text-align: center;
+        margin: 20px 0px
+    }
+    .signup .form_left img {
+        margin-bottom: 15px
+    }
+    .signup .email {
+        width: 100%;
+        font-size: 16px
+    }
+    .signup .signup_button {
+        width: 80%
+    }
+    .signup .signup_image {
+        display: none;
+    }
+    /* less padding for content area */
+    .signup .news-text-wrap {
+        padding: 10px
+    }
+    .signup a {
+        text-decoration: underline;
+    }
 }
