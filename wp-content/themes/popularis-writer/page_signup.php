@@ -5,7 +5,8 @@ get_header();
 //echo $list_id;
 $site_url = get_site_url();
 
-$img_url = $site_url.'/wp-content/uploads/archives/zip_galleries.png';
+$img_zip = $site_url.'/wp-content/uploads/images/signup/zip_galleries.png';
+$img_cc = $site_url.'/wp-content/uploads/images/signup/cc_pizza.png';
 
 
 if($_POST) {
@@ -42,7 +43,7 @@ if($_POST) {
 <div class="row">
 
     <div class="col-md-<?php popularis_main_content_width_columns(); ?>">
-          <div class="post-item download">
+          <div class="post-item signup">
 
 			<div class="news-text-wrap col-md-12">
 			<?
@@ -55,28 +56,35 @@ if($_POST) {
 
 			<?
 			}
-
 			?>
 				
 				<h1>You Can Directly Download all our Fanservice Galleries in Zip format!</h1> 
 				
 				<h2>Get 3500+ High Quality Images of anime fanservice on your computer - It's better than downloading one image at a time</h2>
 
-				<p><img src="<?=$img_url?>" class="signup_image" /></p>
+				<p><img src="<?=$img_zip ?>" class="signup_image" /></p>
 				
-		
-				<h3>Enter your email below for your download link</h3>
+				<p>&nbsp;</p>
 				
 				<form name="sendgrid" method="POST">
-	 
-					<input type="text" class="email" name="email" id="email" placeholder="Enter your best email" title="Enter your best email" />
-					
-					<input type="submit" name="submit" class="signup" value="Join Us Now" onclick="return validateEmail(document.sendgrid.email.value);">
+					<h3>Download link will be delivered to your email by CC</h3>
+					<div class="form_left">
+					<p><img src="<?=$img_cc ?>" class="CC Pizza" /></p>
+					</div>
 
-					<p><span class="note">
-					We hate spam and will never sell your email address to others. All opt-ins are completely optional.</span></p>
+					<div class="form_right">
+						
+							<input type="text" class="email" name="email" id="email" placeholder="Enter your best email" title="Enter your best email" />
+							
+							<input type="submit" name="submit" class="signup_button" value="Join Us Now" onclick="return validateEmail(document.sendgrid.email.value);">
+						
+					</div>
+					<div class="clear"></div>
+					<p class="note">
+					We hate spam and will never sell your email address to others. All opt-ins are completely optional.</p>
 				</form>
 				
+			
 				<p>&nbsp;</p>
 			</div>
 		</div>
@@ -85,7 +93,6 @@ if($_POST) {
     <?php get_sidebar('right'); ?>
 
 </div>
-
 
 <?php 
 get_footer();

@@ -1581,50 +1581,70 @@ nav.navigation.pagination .current {
 }
 
 
-/* sign up page */
+/* newlsetter sign up page */
 
-.download {
+.signup {
     text-align: center;
+    background-color: #F0F0F0
 }
 
-.download h1 {
+.signup h1 {
     font-size: 52px;
     line-height: 56px;
     text-align: center;
     padding-bottom: 25px
 }
 
-.download h2 {
+.signup h2 {
     font-size: 30px;
     line-height: 38px;
 }
 
-.download form {
-    text-align: center;
-}
-
-.download .email {
-    margin: 20px auto 5px auto;
-    width: 62%
-}
-
-.download .note {
-    font-size: 12px
-}
-
-.download .signup {
+.signup h3 {
+    line-height: 34px;
     margin: 0 auto;
-    width: 40%;
+    color: #FF4500
+}
+
+.signup form {
+    text-align: center;
+    margin: 0 auto;
+    width: 80%
+}
+
+.signup .form_left {
+    float: left;
+    width: 30%
+}
+
+.signup .form_right {
+    float: right;
+    float: 70%;
+    text-align: left;
+}
+
+.signup .email {
+    margin: 20px auto 5px auto;
+}
+
+.signup .signup_button {
+    margin: 0 auto;
     background-color: #fd8407;
     color: #ffffff;
     border-radius: 8px;
 }
 
-.download .signup:hover {
+.signup .signup_button:hover {
     background-color: #ff9c12;
 }
 
-.download .signup_image {
+.signup .signup_image {
     border: #fd8407 2px solid;
     margin: 20px 0 15px 0;
+}
+
+.signup .note {
+    font-size: 12px;
+    line-height: 16px;
+    margin: 25px 0px
 }
