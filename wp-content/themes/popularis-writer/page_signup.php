@@ -5,10 +5,12 @@ get_header();
 //echo $list_id;
 $site_url = get_site_url();
 
-$img_zip = $site_url.'/wp-content/uploads/images/signup/zip_galleries.png';
-$img_cc = $site_url.'/wp-content/uploads/images/signup/cc_pizza.png';
+$collage_asura_cryin = $site_url.'/wp-content/uploads/images/signup/collage_asura_cryin.png';
+$collage_megu_chan = $site_url.'/wp-content/uploads/images/signup/collage_megu_chan.png';
+$collage_venus_5 = $site_url.'/wp-content/uploads/images/signup/collage_venus_5.jpg';
+$collage_air_gear = $site_url.'/wp-content/uploads/images/signup/collage_air_gear.png';
 
-$_POST = true;
+$img_cc = $site_url.'/wp-content/uploads/images/signup/cc_pizza.png';
 
 if($_POST) {
 	$email = $_POST['email'];
@@ -56,16 +58,16 @@ if($_POST) {
 			}
 			?>
 				
-				<h1>You Can Directly Download all our Fanservice Galleries in Zip format!</h1> 
+				<h1>You Can Directly Download all our Fanservice Galleries in zip format for Free!</h1> 
 				
-				<h2>Get 3500+ High Quality Images of anime fanservice on your computer - It's better than downloading one image at a time</h2>
+				<h2>Get 4000+ High Quality Images of anime fanservice on your computer - It's better than downloading one image at a time</h2>
 
-				<p><img src="<?=$img_zip ?>" class="signup_image" /></p>
+				<p><img src="<?=$collage_asura_cryin ?>" class="signup_image" /></p>
 				
 				<p>&nbsp;</p>
 				
 				<form name="sendgrid" method="POST">
-					<h3>Download link will be delivered to your email by CC!</h3>
+					<h3>Download link will be delivered to your email personally by CC!</h3>
 					<div class="form_left">
 					<p><img src="<?=$img_cc ?>" class="CC Pizza" /></p>
 					</div>
@@ -82,9 +84,18 @@ if($_POST) {
 					We hate spam and will never sell your email address to others. All opt-ins are completely optional.</p>
 				</form>
 				
-			
 				<p>&nbsp;</p>
+
+				<h3>These images are copyright free and you can use them for personal or commercial purposes. Did we mention they are all FREE?</h3>
 			</div>
+
+			<img src="<?=$collage_megu_chan ?>" class="signup_image" width="50%" />
+
+			<img src="<?=$collage_venus_5 ?>" class="signup_image" width="50%" />
+
+			<img src="<?=$collage_air_gear ?>" class="signup_image" width="50%" />
+
+			<p>&nbsp;</p>
 		</div>
     </div>
 
