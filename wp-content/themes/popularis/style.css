@@ -176,13 +176,15 @@ body {
     padding: 0;
 }
 
+
+/*
 a,
 a:active,
 a:hover,
 a:focus {
     color: #07bcfd;
-    text-decoration: none;
 }
+*/
 
 a:focus,
 .dropdown-toggle:focus {
@@ -264,6 +266,7 @@ html {
     }
     .navbar-right {
         margin-right: 0;
+        padding-top: 5px;
     }
     .navbar-nav>li>a {
         padding-top: 20px;
@@ -399,8 +402,8 @@ html {
 .navbar>.container .navbar-brand,
 .navbar>.container-fluid .navbar-brand {
     margin-left: 0;
-    padding: 0 0 0 15px;
-    height: 60px;
+    padding: 5px 0 0 15px;
+    height: 70px;
 }
 
 #site-navigation {
@@ -772,6 +775,12 @@ h1.site-title,
 .site-branding-text {
     z-index: 99;
     position: relative;
+}
+
+@media (max-width: 520px) {
+    .site-branding-text {
+        width: 75%
+    }
 }
 
 .site-branding-logo,
@@ -1374,7 +1383,6 @@ a:active,
 a:hover,
 a:focus {
     color: #fd8407;
-    text-decoration: none;
 }
 
 .page-area {
@@ -1531,9 +1539,10 @@ h1.single-title {
 }
 
 .post-item h2 a {
-    font-size: 45px;
-    line-height: 49px;
+    font-size: 34px;
+    line-height: 40px;
     font-weight: 700;
+    text-decoration: none;
 }
 
 .post-item {
@@ -1541,6 +1550,10 @@ h1.single-title {
     margin-bottom: 30px;
     box-shadow: 0px 10px 25px 0px rgba(28, 45, 113, 0.17);
     overflow: hidden;
+}
+
+.post-excerpt p {
+    font-size: 16px;
 }
 
 .news-thumb img {
@@ -1551,6 +1564,9 @@ h1.single-title {
 .post-item .news-text-wrap {
     padding: 30px;
 }
+
+
+/* side bar */
 
 aside#sidebar {
     padding-right: 40px;
@@ -1578,6 +1594,11 @@ aside#sidebar {
 nav.navigation.pagination .nav-links a,
 nav.navigation.pagination .current {
     border-radius: 10px;
+}
+
+#sidebar p.featured_product {
+    font-size: 14px;
+    line-height: 22px;
 }
 
 
@@ -1641,6 +1662,7 @@ nav.navigation.pagination .current {
 .signup .signup_image {
     border: #fd8407 2px solid;
     margin: 20px 0 15px 0;
+    max-width: 90%;
 }
 
 .signup .note {
@@ -1670,8 +1692,8 @@ nav.navigation.pagination .current {
 
 @media (max-width: 520px) {
     .signup h1 {
-        font-size: 42px;
-        line-height: 48px;
+        font-size: 40px;
+        line-height: 46px;
     }
     .signup form,
     .signup .form_left,
@@ -1692,7 +1714,7 @@ nav.navigation.pagination .current {
         width: 80%
     }
     .signup .signup_image {
-        max-width: 90%
+        width: 90%
     }
     /* less padding for content area */
     .signup .news-text-wrap {

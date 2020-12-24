@@ -1,4 +1,8 @@
-<?php do_action('popularis_before_menu'); ?> 
+<?php 
+$site_url = get_site_url();
+$img_cc = $site_url.'/wp-content/uploads/images/cc_circle.png';
+
+do_action('popularis_before_menu'); ?> 
 <div class="main-menu">
     <nav id="site-navigation" class="navbar navbar-default">     
         <div class="container">   
@@ -7,13 +11,13 @@
                 <div class="site-heading navbar-brand" >
                     <div class="site-branding-logo">
                         <?php the_custom_logo(); ?>
+
+                        <img src="<?=$img_cc ?>" />
                     </div>
                     <div class="site-branding-text">
-                        <?php if (is_front_page()) : ?>
-                            <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
-                        <?php else : ?>
+                           
                             <p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
-                        <?php endif; ?>
+                        
 
                         <?php
                         $description = get_bloginfo('description', 'display');
