@@ -3,8 +3,10 @@ if (post_password_required()) {
     return;
 }
 
-if (is_single() || is_page()) :
+//if (is_single() || is_page()) :
+    if(false) :
     ?>
+
     <div id="comments" class="comments-template">
         <?php if (have_comments()) : ?>
             <h4 id="comments">
