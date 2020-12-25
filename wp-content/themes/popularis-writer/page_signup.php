@@ -13,7 +13,7 @@ $collage_air_gear = $site_url.'/wp-content/uploads/images/signup/collage_air_gea
 $img_cc = $site_url.'/wp-content/uploads/images/signup/cc_pizza.png';
 
 if($_POST) {
-	$email = $_POST['email'];
+	$subscriberEmail = $_POST['email'];
 
 	$sendGridAPI = new sendGridAPI(SENDGRID_API_KEY);
 	
@@ -21,27 +21,53 @@ if($_POST) {
 	$info = array(
 		'list_id' => $list_id,
 		'contact' => array(
-			'email' => $email, //contact's main email
+			'email' => $subscriberEmail, //contact's main email
 			'join_date' => date('Y-m-d'), //today's date
+			'origin' => $_POST['origin'] //page tracking 
 			)
 	);
 
 	$sendGridAPI->contact_add($info);
+
+	//connect to database, returns resource 
+	$conn = new mysqli($dbHost, $dbUser, $dbPW, $dbName); 
+
+	//get newsl day 0 from db 
+	$series = 'AnimeFanservice';
+	$query = 'SELECT * FROM newsletters WHERE series="'.$series.'" AND day = "0"';
+	$result = mysqli_query($conn, $query);
+	$news = $result->fetch_assoc();
+		
+	//print_r($news);
+	//echo $news['html_code'];
+
+	$subscriberName = 'Anime Fan';
+	$htmlContent = $news['html_code']; 
+
+	$newsletterData = array(
+		'subject' => $news['subject'],
+		'senderName' => 'Anime Empire',
+		'subscriberName' => $subscriberName,
+		'subscriberEmail' => $subscriberEmail,
+		'htmlContent' => $htmlContent,
+	);
+	
+	sendEmail($sendgridClass, $sendgridMail, $newsletterData); 
+	
 }
 ?>
-	<script>
-	
-	function validateEmail(email) {
-			console.log(email);
-		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/.test(email)) {
-			return true;
-		}
-		else {
-			alert("You have entered an invalid email address!");
-			return false;
-		}
+<script>
+function validateEmail(email) {
+		console.log(email);
+	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/.test(email)) {
+		return true;
 	}
-	</script>
+	else {
+		alert("You have entered an invalid email address!");
+		return false;
+	}
+}
+</script>
 
 <div class="row">
 
@@ -73,11 +99,10 @@ if($_POST) {
 					</div>
 
 					<div class="form_right">
+						<input type="hidden" name="origin" value="/download" />
+						<input type="text" class="email" name="email" id="email" placeholder="Enter your best email" title="Enter your best email" />
 						
-							<input type="text" class="email" name="email" id="email" placeholder="Enter your best email" title="Enter your best email" />
-							
-							<input type="submit" name="submit" class="signup_button" value="Join Us Now" onclick="return validateEmail(document.sendgrid.email.value);">
-						
+						<input type="submit" name="submit" class="signup_button" value="Join Us Now" onclick="return validateEmail(document.sendgrid.email.value);">
 					</div>
 					<div class="clear"></div>
 					<p class="note">

@@ -22,7 +22,20 @@
 
         <!-- G Search Console -->
 		<meta name="google-site-verification" content="K4GZC5J-LMQCLaRN9bLptbX2f89SaS2HrFXtAGWCTts" />		
-		
+        
+        <script>
+        function validateEmail(email) {
+                console.log(email);
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/.test(email)) {
+                return true;
+            }
+            else {
+                alert("You have entered an invalid email address!");
+                return false;
+            }
+        }
+        </script>
+
 		</head>
     <body id="blog" <?php body_class(); ?>>
         <?php wp_body_open(); ?>

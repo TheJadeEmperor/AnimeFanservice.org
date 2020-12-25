@@ -3,8 +3,14 @@ if (post_password_required()) {
     return;
 }
 
+//show newsletter signup module
+echo newsletterModule();
+
+//show random products 
+echo productsModule ();
+
 //if (is_single() || is_page()) :
-    if(false) :
+    if(false) : //turn off comments
     ?>
 
     <div id="comments" class="comments-template">

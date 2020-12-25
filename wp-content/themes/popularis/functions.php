@@ -377,14 +377,59 @@ function fanfic_function($atts) {
 	return $readfile.' characters';
 }
 
+
+function newsletterModule() {
+    $siteURL = get_site_url();
+    
+    $imgCC = $siteURL.'/wp-content/uploads/images/signup/cc_pizza.png';
+    $optinURL = $siteURL.'/download';
+    
+    $output = '<div class="newsletterModule">
+    <div class="headline">Download 200+ Anime OSTs for Free</div>
+
+    <form name="sendgrid" method="POST" action="'.$optinURL.'">
+        <p>Tired of searching for Original Sound Tracks? We have it all in one place. Sign up below to directly download OST from our servers.</p>
+
+        <div class="form_left">
+        <p><img src="'. $imgCC .'" class="CC Pizza"></p>
+        </div>
+
+        <div class="form_right">
+            <input type="hidden" name="origin" value="newsletterModule" />
+            <input type="text" class="email" name="email" id="email" placeholder="Enter your best email" title="Enter your best email">
+            
+            <input type="submit" name="submit" class="signupButton" value="Join Us Now" onclick="return validateEmail(document.sendgrid.email.value);">
+        
+        </div>
+        <div class="clear"></div>
+        <p class="note">
+        We hate spam and will never sell your email address to others. All opt-ins are completely optional.</p>
+    </form>
+    </div>';
+
+    return $output;
+}
+
+
+function productsModule () {
+    $output = '';
+    return $output;
+
+    
+}
+
+//shows 1 random product for the product module
+function randomProduct () {
+
+}
+
+
+
 // gallery shortcode [show_gallery anime="folder_name/folder_name"]
 add_shortcode('show_gallery', 'gallery_function');
 
 //fanfic shortcode [fanfic file="folder_name/file_name"]
 add_shortcode('fanfic', 'fanfic_function');
-
-
-
 
 //disable automatic updates 
 add_filter( 'auto_update_plugin', '__return_false' );
