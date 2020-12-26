@@ -1,8 +1,11 @@
 <?php /* Template Name: Signup Page */ 
-include('api_sendgrid.php');
+
+//required sendGrid API 
+require ($sendGridVendor); 
+include ('api_sendgrid.php');
  
 get_header(); 
-//echo $list_id;
+
 $site_url = get_site_url();
 
 $collage_asura_cryin = $site_url.'/wp-content/uploads/images/signup/collage_asura_cryin.png';
@@ -15,6 +18,8 @@ $img_cc = $site_url.'/wp-content/uploads/images/signup/cc_pizza.png';
 if($_POST) {
 	$subscriberEmail = $_POST['email'];
 
+	$sendgridMail = new \SendGrid\Mail\Mail(); 
+	$sendgridClass = new \SendGrid(SENDGRID_API_KEY);
 	$sendGridAPI = new sendGridAPI(SENDGRID_API_KEY);
 	
 	//add contact to list
