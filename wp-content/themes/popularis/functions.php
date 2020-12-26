@@ -354,7 +354,6 @@ function custom_post_type() {
 add_action( 'init', 'custom_post_type', 0 );
 
 
-
 function fanfic_function($atts) {
     
 	extract(shortcode_atts(array(
@@ -411,18 +410,48 @@ function newsletterModule() {
 }
 
 
-function productsModule () {
-    $output = '';
-    return $output;
+function productsModule ($productsList) {
+    global $productsList;
 
-    
+    $output = '<div class="productsModule"><div class="headline">Products of the Day</div>
+    '.randomProduct ($productsList).randomProduct ($productsList).randomProduct ($productsList).'</div>'; 
+
+    return $output;
 }
 
 //shows 1 random product for the product module
-function randomProduct () {
+function randomProduct ($productsList) {
+    $random = rand() % 10;
+    $site_url = get_site_url();
+    
+    $prodMain = $productsList[$random];
 
+    $prod_img = $site_url.'/wp-content/uploads/'.$prodMain['image'];
+
+    $output = '<div class="randomProduct">
+    <a href="'.$prodMain['url'].'" target="_BLANK"><img src="'.$prod_img.'" />
+    <p>'.$prodMain['name'].'</p></a> 
+    </div>';
+
+    return $output;
 }
 
+
+global $wpdb;
+global $productsList;
+
+$productsResults = $wpdb->get_results("SELECT * FROM products ORDER BY name LIMIT 10");
+
+$counter = 0;
+foreach($productsResults as $prod) {
+    
+    $productsList[$counter] = array (
+        'name' => $prod->name,
+        'url' => $prod->url,
+        'image' => $prod->image 
+    );
+    $counter++;
+}
 
 
 // gallery shortcode [show_gallery anime="folder_name/folder_name"]

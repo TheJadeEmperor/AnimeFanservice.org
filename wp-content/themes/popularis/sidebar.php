@@ -1,6 +1,6 @@
 <?php 
 $site_url = get_site_url();
-$hxh_mug = $site_url.'/wp-content/uploads/images/featured_products/hxh_mug.jpg';
+$hxh_mug = $site_url.'/wp-content/uploads/images/featured_products/mug_hunter_1.jpg';
 
 ?>
 <aside id="sidebar" class="col-md-4 col-md-pull-8">

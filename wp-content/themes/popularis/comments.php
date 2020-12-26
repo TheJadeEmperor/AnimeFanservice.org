@@ -6,8 +6,10 @@ if (post_password_required()) {
 //show newsletter signup module
 echo newsletterModule();
 
+echo '<p>&nbsp;</p>';
+
 //show random products 
-echo productsModule ();
+echo productsModule ($productsList);
 
 //if (is_single() || is_page()) :
     if(false) : //turn off comments
