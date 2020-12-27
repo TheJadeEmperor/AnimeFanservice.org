@@ -1,10 +1,14 @@
 <?php
+
+//required sendGrid API 
+require ($sendGridVendor);  
+
 //sends one email to a recipient
 function sendEmail ($sendgrid, $email, $newsletterData) {
 	
 	global $approvedSenderEmail;
 	
-	echo 'sendEmail '.$approvedSenderEmail.'..';
+	//echo 'sendEmail '.$approvedSenderEmail.'..';
 	
 	$email->setFrom($approvedSenderEmail, $newsletterData['senderName']);
 	$email->setSubject($newsletterData['subject']);
@@ -15,9 +19,9 @@ function sendEmail ($sendgrid, $email, $newsletterData) {
 
 	try {
 		$response = $sendgrid->send($email);
-		print $response->statusCode() . "\n";
-		print_r($response->headers());
-		print $response->body() . "\n";
+		//print $response->statusCode() . "\n";
+		//print_r($response->headers());
+		//print $response->body() . "\n";
 	} catch (Exception $e) {
 		echo 'Caught exception: '. $e->getMessage() ."\n";
 	}
@@ -176,9 +180,9 @@ class sendGridAPI {
 	public function contact_add ($contact_data) {
 
 		$myfile = fopen("signups.txt", "a") or die("Unable to open file!");
-		fwrite($myfile, $contact_data['contact']['origin'].' ');
+		fwrite($myfile, $contact_data['contact']['email'].' ');
 				
-		$curl = curl_init();  
+		$curl = curl_init();
 		
 		curl_setopt_array($curl, array(
 		  CURLOPT_URL => "https://api.sendgrid.com/v3/marketing/contacts",
@@ -188,8 +192,7 @@ class sendGridAPI {
 		  CURLOPT_TIMEOUT => 30,
 		  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		  CURLOPT_CUSTOMREQUEST => "PUT",
-		  CURLOPT_POSTFIELDS => '{"list_ids":["'.$contact_data['list_id'].'"],"contacts":[{"email":"'.$contact_data['contact']['email'].'","first_name":"'.$contact_data['contact']['first_name'].'","city":"'.$contact_data['contact']['join_date'].'",
-			"state_province_region":"'.$contact_data['contact']['origin'].'","custom_fields":{}}]}',
+		  CURLOPT_POSTFIELDS => '{"list_ids":["'.$contact_data['list_id'].'"],"contacts":[{"email":"'.$contact_data['contact']['email'].'","first_name":"'.$contact_data['contact']['first_name'].'","city":"'.$contact_data['contact']['join_date'].'","custom_fields":{}}]}',
 		  CURLOPT_HTTPHEADER => array(
 			"authorization: Bearer ".$this->sendgridAPIKey,
 			"content-type: application/json"
