@@ -457,7 +457,7 @@ function newsletterModule() {
 }
 
 
-function productsModule ($productsList) {
+function productsModule () {
     global $productsList;
 
     $output = '<div class="productsModule"><div class="headline">Products of the Day</div>
@@ -468,7 +468,7 @@ function productsModule ($productsList) {
 
 //shows 1 random product for the product module
 function randomProduct ($productsList) {
-    $random = rand() % 10;
+    $random = rand() % 8;
     $site_url = get_site_url();
     
     $prodMain = $productsList[$random];
@@ -494,7 +494,7 @@ foreach($productsResults as $prod) {
     
     $productsList[$counter] = array (
         'name' => $prod->name,
-        'url' => $prod->url,
+        'url' => $prod->url_2,
         'image' => $prod->image 
     );
     $counter++;
