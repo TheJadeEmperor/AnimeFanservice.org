@@ -58,7 +58,7 @@ if($_POST) {
 	);
 	
 	sendEmail($sendgridClass, $sendgridMail, $newsletterData); 
-	
+	$dis = 'disabled';
 }
 ?>
 <script>
@@ -104,10 +104,10 @@ function validateEmail(email) {
 					</div>
 
 					<div class="form_right">
-						<input type="hidden" name="origin" value="/download" />
-						<input type="text" class="email" name="email" id="email" placeholder="Enter your best email" title="Enter your best email" />
+					<input type="hidden" name="origin" value="download-ost" />
+						<input type="text" class="email" name="email" id="email" placeholder="Enter your best email" title="Enter your best email" <?=$dis?> />
 						
-						<input type="submit" name="submit" class="signup_button" value="Join Us Now" onclick="return validateEmail(document.sendgrid.email.value);">
+						<input type="submit" name="submit" class="signup_button" value="Join Us Now" onclick="return validateEmail(document.sendgrid.email.value);" <?=$dis?> />
 					</div>
 					<div class="clear"></div>
 					<p class="note">
@@ -127,6 +127,9 @@ function validateEmail(email) {
 
 			<p>&nbsp;</p>
 		</div>
+
+		<p>&nbsp;</p><p>&nbsp;</p>
+		<?php echo productsModule(); ?>
     </div>
 
     <?php get_sidebar('right'); ?>

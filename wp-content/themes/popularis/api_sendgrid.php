@@ -192,7 +192,7 @@ class sendGridAPI {
 		  CURLOPT_TIMEOUT => 30,
 		  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		  CURLOPT_CUSTOMREQUEST => "PUT",
-		  CURLOPT_POSTFIELDS => '{"list_ids":["'.$contact_data['list_id'].'"],"contacts":[{"email":"'.$contact_data['contact']['email'].'","first_name":"'.$contact_data['contact']['first_name'].'","city":"'.$contact_data['contact']['join_date'].'","custom_fields":{}}]}',
+		  CURLOPT_POSTFIELDS => '{"list_ids":["'.$contact_data['list_id'].'"],"contacts":[{"email":"'.$contact_data['contact']['email'].'","first_name":"'.$contact_data['contact']['first_name'].'","city":"'.$contact_data['contact']['join_date'].'","state_province_region":"'.$contact_data['contact']['origin'].'","custom_fields":{}}]}',
 		  CURLOPT_HTTPHEADER => array(
 			"authorization: Bearer ".$this->sendgridAPIKey,
 			"content-type: application/json"
