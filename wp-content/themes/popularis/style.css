@@ -1397,6 +1397,7 @@ article.blog-article:nth-of-type(2n-1) {
     float: left;
     display: inline-block;
     width: auto;
+    margin-top: 25px;
 }
 
 .posted-date {
@@ -1565,6 +1566,11 @@ nav.navigation.pagination .current {
     max-width: 90%;
 }
 
+.signup .ost_image { 
+    float: left;
+    width: 50%;
+}
+
 .signup .note {
     font-size: 12px;
     line-height: 16px;
@@ -1623,6 +1629,9 @@ nav.navigation.pagination .current {
     .signup a {
         text-decoration: underline;
     }
+    .signup .ost_image { 
+        float: none;
+    }    
 }
 
 

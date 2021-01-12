@@ -3,13 +3,20 @@ if (post_password_required()) {
     return;
 }
 
-//show newsletter signup module
-echo newsletterModule();
 
-echo '<p>&nbsp;</p>';
+$post_type = get_post_type( $post->ID );
 
-//show random products 
-echo productsModule ($productsList);
+
+if($post_type != 'page') { //don't show modules on fanfic pages
+    //show newsletter signup module
+    echo newsletterModule();
+
+    echo '<p>&nbsp;</p>';
+
+    //show random products 
+    echo productsModule ($productsList);
+}
+
 
 //if (is_single() || is_page()) :
     if(false) : //turn off comments
