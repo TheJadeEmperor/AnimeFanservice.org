@@ -76,7 +76,7 @@ function validateEmail(email) {
 <div class="row">
 
     <div class="col-md-<?php popularis_main_content_width_columns(); ?>">
-          <div class="post-item signup">
+          <div class="post-item signup signup-ost">
 
 			<div class="news-text-wrap col-md-12">
 			<?

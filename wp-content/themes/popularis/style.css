@@ -1510,6 +1510,10 @@ nav.navigation.pagination .current {
     background-color: #F0F0F0
 }
 
+.signup-ost {
+    background-color: #FFFFFF;
+}
+
 .signup h1 {
     font-size: 52px;
     line-height: 56px;
