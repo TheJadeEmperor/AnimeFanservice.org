@@ -1,7 +1,7 @@
 <?php 
 $site_url = get_site_url();
 $hxh_mug = $site_url.'/wp-content/uploads/images/featured_products/mug_hunter_1.jpg';
-$hxh_url = 'https://www.etsy.com/listing/925390628/hunter-x-hunter-mug-x-killua-zoldyck-mug?ref=related-6';
+$hxh_url = 'https://www.etsy.com/shop/AnimeEmpireShop';
 ?>
 <aside id="sidebar" class="col-md-4 col-md-pull-8">
 

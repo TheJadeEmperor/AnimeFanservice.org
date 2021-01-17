@@ -13,7 +13,7 @@ $site_url = get_site_url();
                         
                         <li><a href="https://www.instagram.com/anime.motivation.quotes/" target="_BLANK"><i class="fa fa-instagram"></i></a></li>
 
-                        <li><a href="https://www.etsy.com/shop/ConfuciusStore"><i class="fa fa-cart-plus"></i></a></li>
+                        <li><a href="https://www.etsy.com/shop/AnimeEmpireShop"><i class="fa fa-cart-plus"></i></a></li>
                         
                         <li><a href="<?php echo $site_url?>/download"><i class="fa fa-envelope-open"></i></a></li>
                     </ul>
