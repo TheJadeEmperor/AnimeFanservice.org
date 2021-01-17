@@ -68,7 +68,7 @@ function gallery_function($atts) {
                     else
                         $class = 'preview_portrait';
         
-					$galleryContent .= '<li title="'.$anime.'" onclick="openModal(\''.$animeID.'\');currentSlide('.$num.')"><a href="#">
+					$galleryContent .= '<li title="'.$anime.'" onclick="openModal(\''.$animeID.'\');currentSlide('.$num.')"><a>
 					<img src="'.$showThisImg.'" alt="'.$anime.'" />
 					<img src="'.$showThisImg.'" class="'.$class.'" alt="'.$anime.'" >
 					</a></li>'; 
@@ -96,8 +96,7 @@ function gallery_function($atts) {
         </div>';
     }
     $galleryContent .=  '<div class="caption-container">
-    <p id="caption">'.$postTitle.' 
-    <span class="lightbox_download"><a href="'.$site_url.'/download">Download entire gallery</a></span></p>
+    <p id="caption">'.$postTitle.' <span class="lightbox_link"><a href="'.$site_url.'/download">Download entire gallery</a></span></p>
     </div>';
 
     //horizontal scrolling images
