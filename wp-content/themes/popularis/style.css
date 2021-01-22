@@ -1240,7 +1240,7 @@ nav.navigation.post-navigation {
 
 /* fanfic contents */
 
-.fanfic-template-default .single-content p {
+.fanfic-template-default .single-content p:not(.episode_title) {
     text-indent: 30px;
     font-family: Arial;
 }
