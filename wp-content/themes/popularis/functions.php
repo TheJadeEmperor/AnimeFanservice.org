@@ -463,7 +463,7 @@ function productsModule () {
     $output = '<div class="productsModule"><div class="headline">Products of the Day</div>
     '.randomProduct ($productsList).randomProduct ($productsList).randomProduct ($productsList).'</div>'; 
 
-    return $output;
+    //return $output;
 }
 
 //shows 1 random product for the product module
