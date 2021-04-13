@@ -5,6 +5,7 @@ wp-content/uploads/2020/*
 wp-content/uploads/anime/**
 wp-content/uploads/anime/*
 wp-content/uploads/archives/*
+wp-content/uploads/clickbank/*
 
 # Visual studio code
 .vs/
